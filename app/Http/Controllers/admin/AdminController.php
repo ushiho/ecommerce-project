@@ -111,10 +111,36 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $error = '';
+        $success = '';
+        if($id == admin()->user()->id){
+            $error = trans('admin.can_not_remove_profile');
+        }else{
+            $res = Admin::find($id)->delete();
+            if($res){
+                $success = trans('admin.record_deleted_success');
+            }else{
+                $error = trans('admin.record_deleted_error');
+            }
+        }
+        session()->flash('error', $error);
+        session()->flash( 'success', $success);
+        return back();
     }
 
     public function deleteSelected(){
-        return request();
+        $error = '';
+        $success = '';
+        if(count(request('admins')) <= 0){
+            $error = trans('admin.no_admin_selected_to_delete');
+        }else{
+            foreach(request('admins') as $adminId){
+                Admin::find($adminId)->delete();
+            }
+            $success = trans('admin.selected_are_deleted');
+        }
+        session()->flash('success', $success);
+        session()->flash('error', $error);
+        return back();
     }
 }

@@ -8,13 +8,13 @@
     </div>
 @endif
 
-@if (session()->has('error'))
+@if (session()->has('error') && !empty(session('error')))
     <div class="alert alert-danger">
         {{ session('error') }}
     </div>
 @endif
 
-@if (session()->has('success'))
+@if (session()->has('success') && !empty(session('success')))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>

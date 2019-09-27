@@ -40,7 +40,12 @@ return [
     'delete' => 'Delete',
     'admin_added_success' => 'This admin is added successfully',
     'admin_edited_success' => 'This admin is edited successfully',
-    'del-one-record' => 'Be aware this procedure is conclusive, The admin you want delete is:',
+    'del_one_record' => 'Be aware this procedure is conclusive, The admin you want delete is:',
+    'can_not_remove_profile' => 'You cannot delete your account, go to account settings to do it.',
+    'record_deleted_success' => 'The admin is deleted successfully.',
+    'record_deleted_error' => 'This admin not exist.',
+    'no_admin_selected_to_delete' => 'No admin has been selected for deletion.',
+    'selected_are_deleted' => 'All selected admins was deleted successfully.',
     
     // Datatables tranlate
     "sProcessing" => "Processing...",

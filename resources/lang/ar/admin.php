@@ -40,8 +40,12 @@ return [
     'ok' => 'حسنا',
     'admin_added_success' => 'تمت إضافة المشرف بنجاح',
     'admin_edited_success' => 'تم تعديل المشرف بنجاح',
-    'del-one-record' => 'كن على علم بأن هذا الإجراء قاطع ، والمشرف الذي تريد حذفه هو:',
-
+    'del_one_record' => 'كن على علم بأن هذا الإجراء قاطع ، والمشرف الذي تريد حذفه هو:',
+    'can_not_remove_profile' => 'لا يمكنك حذف حسابك ، انتقل إلى إعدادت الحساب للقيام بذلك.',
+    'record_deleted_success' => 'تم حذف المشرف بنجاح.',
+    'record_deleted_error' => 'هذا المشرف غير موجود.',
+    'no_admin_selected_to_delete' => 'لم يتم تحديد مشرف للحذف.',
+    'selected_are_deleted' => 'تم حذف جميع المشرفين المختارين بنجاح.',
     
     // Datatables tranlate
     "sProcessing" => "معالجة...",
