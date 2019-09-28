@@ -1,1 +1,1 @@
-<input type="checkbox" name="admins[]" value="{{$id}}" style="cursor: pointer;" class="admin-checked" onchange="checkWhoIsChecked({{$id}})">
+<input id="admin-check-{{$id}}" type="checkbox" name="admins[]" value="{{$id}}" style="cursor: pointer;" class="admin-checked" @if (admin()->user()->id == $id) disabled @endif onchange="checkWhoIsChecked({{$id}}, {{admin()->user()->id}})">

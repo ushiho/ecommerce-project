@@ -111,36 +111,32 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $error = '';
-        $success = '';
+        $msg = ['error' => '', 'success' => ''];        
         if($id == admin()->user()->id){
-            $error = trans('admin.can_not_remove_profile');
+            $msg['error'] = trans('admin.can_not_remove_profile');
         }else{
-            $res = Admin::find($id)->delete();
-            if($res){
-                $success = trans('admin.record_deleted_success');
-            }else{
-                $error = trans('admin.record_deleted_error');
-            }
+            Admin::find($id)->delete() ? $msg['success'] = trans('admin.record_deleted_success') : $msg['error'] = trans('admin.record_deleted_error');
         }
-        session()->flash('error', $error);
-        session()->flash( 'success', $success);
+        $this->saveMsgToSession($msg);
         return back();
     }
 
     public function deleteSelected(){
-        $error = '';
-        $success = '';
+        $msg = ['error' => '', 'success' => ''];
         if(count(request('admins')) <= 0){
-            $error = trans('admin.no_admin_selected_to_delete');
+            $msg['error'] = trans('admin.no_admin_selected_to_delete');
         }else{
             foreach(request('admins') as $adminId){
-                Admin::find($adminId)->delete();
+                $adminId == admin()->user()->id ? $msg['error'] = trans('admin.can_not_remove_profile') : Admin::find($adminId)->delete();
             }
-            $success = trans('admin.selected_are_deleted');
+            $msg['success'] = trans('admin.selected_are_deleted');
         }
-        session()->flash('success', $success);
-        session()->flash('error', $error);
+        $this->saveMsgToSession($msg);
         return back();
+    }
+
+    protected function saveMsgToSession($msg){
+        session()->flash('error', $msg['error']);
+        session()->flash( 'success', $msg['success']);
     }
 }

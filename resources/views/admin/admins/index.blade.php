@@ -19,7 +19,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="makeAllMsgHidden()"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"> {{ trans('admin.warning') }} </h4>
+          <h4 class="modal-title alert alert-danger" id="myModalLabel" role="alert"> {{ trans('admin.warning') }} </h4>
         </div>
         <div class="modal-body">
           <p id="no-empty-record" class="hidden"> {{ trans('admin.confirm_delete') }}&nbsp;<span id="number-checked"></span></p>

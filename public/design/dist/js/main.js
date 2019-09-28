@@ -2,33 +2,38 @@
 function checkWhoIsChecked(id){
     var recordCheckedLen = $("input.admin-checked:checkbox:checked").length,
         allRecords = $("input.admin-checked:checkbox").length;
-    if (recordCheckedLen == allRecords) {
+    if (recordCheckedLen + 1 == allRecords) {
         $("#all-admins").prop('checked', true);
     } else {
         $("#all-admins").prop('checked', false);
     }
-    if($("a#del-record-btn-"+id).hasClass('disabled')){
-        $("a#del-record-btn-"+id).removeClass('disabled');
+    if(id != "admin-check-"+userId){
+        if($("a#del-record-btn-"+id).hasClass('disabled')){
+            $("a#del-record-btn-"+id).removeClass('disabled');
+        }else{
+            $("a#del-record-btn-"+id).addClass('disabled');
+        }
     }else{
         $("a#del-record-btn-"+id).addClass('disabled');
+        $("#admin-check-"+id+"").addClass('disabled');
     }
 }
 
-function checkAll(){
+function checkAll(userId){
     $(function() {
         if($("#all-admins").is(':checked')){
             $('input.admin-checked[type=checkbox]').each(function() {
-                $(this).prop('checked', true);
+                $(this).attr('id') != "admin-check-"+userId ? $(this).prop('checked', true) : '';
             });
             $("a.del-record-btn").each(function() {
-                    $(this).addClass("disabled");
+                $(this).attr('id') != "del-record-btn-"+userId ? $(this).addClass("disabled") : '';
             });
         }else{
             $('input.admin-checked[type=checkbox]').each(function() {
-                $(this).prop('checked', false);
+                $(this).attr('id') != "admin-check-"+userId ? $(this).prop('checked', false) : '';
             });
             $("a.del-record-btn").each(function() {
-                    $(this).removeClass("disabled");
+                $(this).attr('id') != "del-record-btn-"+userId ? $(this).removeClass("disabled") : '';
             });
         }
     });

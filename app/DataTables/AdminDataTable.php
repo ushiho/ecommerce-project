@@ -111,7 +111,7 @@ class AdminDataTable extends DataTable
             [
                 'data' => 'checkbox',
                 'name' => 'checkbox',
-                'title' => '<input id="all-admins" style="cursor: pointer;" type="checkbox" title="'.trans('admin.select_all').'" onclick="checkAll()">',
+                'title' => '<input id="all-admins" style="cursor: pointer;" type="checkbox" title="'.trans('admin.select_all').'" onclick="checkAll('.admin()->user()->id.')">',
                 'exportable' => false,
                 'orderable' => false,
                 'printable' => false,
