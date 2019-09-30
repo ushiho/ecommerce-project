@@ -2,4 +2,4 @@
 <a href="#" class="btn btn-danger btn-s del-record-btn @if (admin()->user()->id == $id)
     disabled
 @endif" title="{{ trans('admin.delete') }}" id="del-record-btn-{{$id}}"
-onclick='warningDelOne("{{$id}}", "{{$name}}")'><i class="fa fa-trash"></i></a>
+onclick='warningDelOne("{{$id}}", "{{$name}}", "{{aurl("control/")}}")'><i class="fa fa-trash"></i></a>

@@ -27,7 +27,7 @@
           <p id="one-record" class="hidden">{{ trans('admin.del_one_record') }} <span class="danger" id="record-name"></span></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-info" data-dismiss="modal" onclick="makeAllMsgHidden()">{{ trans('admin.close') }}</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal" onclick="makeAllMsgHidden('{{ aurl('control/delete/selected') }}')">{{ trans('admin.close') }}</button>
           <button id="del-record" type="button" class="btn btn-danger hidden" onclick="deleteConfirmed()">{{ trans('admin.ok')}}</button>
         </div>
       </div>

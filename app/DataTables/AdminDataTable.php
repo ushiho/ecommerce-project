@@ -35,33 +35,6 @@ class AdminDataTable extends DataTable
         return Admin::query();
     }
 
-    public static function dataTableLanguage(){
-        return [
-            "sProcessing" => trans("admin.sProcessing"),
-            "sLengthMenu" => trans("admin.sLengthMenu"),
-            "sZeroRecords" => trans("admin.sZeroRecords"),
-            "sEmptyTable" => trans("admin.sEmptyTable"),
-            "sInfo" => trans("admin.sInfo"),
-            "sInfoEmpty" => trans("admin.sInfoEmpty"),
-            "sInfoFiltered" => trans("admin.sInfoFiltered"),
-            "sInfoPostFix" => trans("admin.sInfoPostFix"),
-            "sSearch" => trans("admin.sSearch"),
-            "sUrl" => trans("admin.sUrl"),
-            "sInfoThousands" => trans("admin.sInfoThousands"),
-            "sLoadingRecords" => trans("admin.sLoadingRecords"),
-            "oPaginate" => [
-                "sFirst" => trans("admin.sFirst"),
-                "sLast" => trans("admin.sLast"),
-                "sNext" => trans("admin.sNext"),
-                "sPrevious" => trans("admin.sPrevious")
-            ],
-            "oAria" => [
-                "sSortAscending" => trans("admin.sSortAscending"),
-                "sSortDescending" => trans("admin.sSortDescending")
-            ]
-            ];
-    }
-
     /**
      * Optional method if you want to use html builder.
      *
@@ -77,14 +50,14 @@ class AdminDataTable extends DataTable
                         'dom'        => 'Blfrtip',
                         'lengthMenu' => [[10, 25, 50, 100, -1], [10, 25, 50, trans('admin.all_record')]],
                         'buttons'    => [
-                            ['extend' => 'csv', 'className' => 'btn btn-info btn-s', 'text' => 'CSV'],
-                            ['extend' => 'pdf', 'className' => 'btn btn-warning btn-s', 'text' => 'PDF'],
-                            ['extend' => 'excel', 'className' => 'btn btn-info btn-s', 'text' => 'EXCEL'],
-                            ['extend' => 'print', 'className' => 'btn btn-primary btn-s', 'text' => '<i class="fa fa-print"></i>'],
-                            ['attr' => ['id' => 'btn-del', 'onclick' => 'warningDelAll()'], 'className' => 'btn btn-danger btn-s', 'text' => '<span title="'.trans('admin.delete_all_title').'"><i class="fa fa-trash"></i>&nbsp;'.trans('admin.delete_all_title').'</span>'],
-                            ['className' => 'btn btn-success btn-s', 'text' => '<i class="fa fa-plus"></i>&nbsp;<span title="'.trans('admin.add_admin').'">'.trans('admin.add_admin').'</span>',
+                            ['extend' => 'csv', 'className' => 'btn btn-info btn-s datatable-btn', 'text' => 'CSV'],
+                            ['extend' => 'pdf', 'className' => 'btn btn-warning btn-s datatable-btn', 'text' => 'PDF'],
+                            ['extend' => 'excel', 'className' => 'btn btn-info btn-s datatable-btn', 'text' => 'EXCEL'],
+                            ['attr' => ['id' => 'btn-del', 'onclick' => 'warningDelAll()'], 'className' => 'btn btn-danger btn-s datatable-btn', 'text' => '<span title="'.trans('admin.delete_all_title').'"><i class="fa fa-trash"></i>&nbsp;'.trans('admin.delete_all_title').'</span>'],
+                            ['className' => 'btn btn-success btn-s datatable-btn', 'text' => '<i class="fa fa-plus"></i>&nbsp;<span title="'.trans('admin.add_admin').'">'.trans('admin.add_admin').'</span>',
                             'action' => "function() { window.open('".aurl('control/create')."', '_top');}"],
-                            ['extend' => 'reload', 'className' => 'btn btn-default btn-s', 'text' => '<i class="fa fa-refresh"></i>'],
+                            ['extend' => 'print', 'className' => 'btn btn-primary btn-s datatable-btn', 'text' => '<i class="fa fa-print"></i>'],
+                            ['extend' => 'reload', 'className' => 'btn btn-default btn-s datatable-btn', 'text' => '<i class="fa fa-refresh"></i>'],
                         ],
                         'initComplete' => " function () {
                             this.api().columns([2, 3,]).every(function () {
@@ -111,7 +84,7 @@ class AdminDataTable extends DataTable
             [
                 'data' => 'checkbox',
                 'name' => 'checkbox',
-                'title' => '<input id="all-admins" style="cursor: pointer;" type="checkbox" title="'.trans('admin.select_all').'" onclick="checkAll('.admin()->user()->id.')">',
+                'title' => '<input id="all-admins" type="checkbox" title="'.trans('admin.select_all').'" onclick="checkAll('.admin()->user()->id.')">',
                 'exportable' => false,
                 'orderable' => false,
                 'printable' => false,

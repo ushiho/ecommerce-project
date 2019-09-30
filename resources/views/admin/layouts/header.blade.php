@@ -43,11 +43,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
       {{-- Google Font   --}}
-      <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900&display=swap&subset=arabic" rel="stylesheet">
-      <style>
-        html, body, h1, h2, h3, h4, h5, h6{
-          font-family: 'Cairo', sans-serif;
-        }
-      </style>
+      <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700&display=swap&subset=arabic" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('/design/dist/css') }}/main.css">
+    @stack('styles')
     </head>
     

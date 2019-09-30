@@ -7,6 +7,12 @@ if (!function_exists('aurl')) {
     }
 }
 
+if(!function_exists('userUrl')){
+    function userUrl($url = null){
+        return aurl('users/'.$url);
+    }
+}
+
 if (!function_exists('admin')) {
     function admin(){
         return auth()->guard('admin');
@@ -60,4 +66,27 @@ if (!function_exists('changeDirection')) {
     }
 }
 
+if(!function_exists('addClassToTreeviewMenu')){
+    function addClassToTreeviewMenu($pattern){
+        if(preg_match("/".$pattern."/i", request()->segment(2))){
+            $classToAdd = ['menu-open', 'display: block'];
+        }else{
+            $classToAdd = ['', ''];
+        }
+        return $classToAdd;
+    }
+}
 
+if(!function_exists('dataNotFound')){
+    function dataNotFound(){
+        session()->flash('error', trans('admin.entity_not_found'));
+        return back();
+    }
+}
+
+if(!function_exists('saveMsgToSession')){
+    function saveMsgToSession($msg){
+        session()->flash('error', $msg['error']);
+        session()->flash('success', $msg['success']);
+    }
+}

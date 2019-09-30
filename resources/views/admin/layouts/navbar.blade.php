@@ -51,7 +51,7 @@
                 <i class="fa fa-dashboard"></i> <span>{{ trans('admin.dashboard') }}</span>
             </a>
             </li>
-            <li class="treeview">
+        <li class="treeview {{ addClassToTreeviewMenu('control')[0] }}">
             <a href="#">
                 <i class="fa fa-users"></i>
                 <span>{{ trans('admin.admin_accounts') }}</span>
@@ -65,8 +65,31 @@
                 </span>
                 @endif
             </a>
-            <ul class="treeview-menu">
-                <li><a href=" {{ aurl('control') }} "><i class="fa fa-user"></i>{{ trans('admin.admin_account') }}</a></li>
+            <ul class="treeview-menu" style="{{ addClassToTreeviewMenu('control')[1] }}">
+                <li><a href=" {{ aurl('control') }} "><i class="fa fa-user-secret"></i>{{ trans('admin.admin_account') }}</a></li>
+                <li><a href=" {{ aurl('control/create') }} "><i class="fa fa-plus"></i>{{ trans('admin.add_admin') }}</a></li>
+            </ul>
+            </li>
+            <li class="treeview {{ addClassToTreeviewMenu('users')[0] }}">
+            <a href="#">
+                <i class="fa fa-users"></i>
+                <span>{{ trans('admin.user_accounts') }}</span>
+                @if (changeDirection() == 'rtl')
+                <span class="pull-left-container">
+                    <i class="fa fa-angle-right pull-left"></i>
+                </span>
+                @else
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                @endif
+            </a>
+            <ul class="treeview-menu" style="{{ addClassToTreeviewMenu('users')[1] }}">
+                <li class="active"><a href=" {{ userUrl('control') }} "><i class="fa fa-user"></i>{{ trans('admin.user_account') }}</a></li>
+                <li><a href=" {{ userUrl('control/create') }} "><i class="fa fa-plus"></i>{{ trans('admin.add_user') }}</a></li>
+                <li><a href="{{ userUrl('control') }}?level=client"><i class="fa fa-user"></i> {{trans('admin.client')}} </a></li>
+                <li><a href="{{ userUrl('control') }}?level=vendor"><i class="fa fa-user"></i> {{trans('admin.vendor')}} </a></li>
+                <li><a href="{{ userUrl('control') }}?level=company"><i class="fa fa-building"></i> {{trans('admin.company')}} </a></li>
             </ul>
             </li>
         </ul>

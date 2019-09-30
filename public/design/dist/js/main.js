@@ -1,36 +1,30 @@
 
-function checkWhoIsChecked(id){
-    var recordCheckedLen = $("input.admin-checked:checkbox:checked").length,
-        allRecords = $("input.admin-checked:checkbox").length;
-    if (recordCheckedLen + 1 == allRecords) {
-        $("#all-admins").prop('checked', true);
-    } else {
-        $("#all-admins").prop('checked', false);
-    }
-    if(id != "admin-check-"+userId){
-        if($("a#del-record-btn-"+id).hasClass('disabled')){
-            $("a#del-record-btn-"+id).removeClass('disabled');
-        }else{
-            $("a#del-record-btn-"+id).addClass('disabled');
+function checkWhoIsChecked(id, forAdmin = true){
+    $(document).ready(function() {
+        var recordCheckedLen = $("input.admin-checked:checkbox:checked").length,
+            allRecords = $("input.admin-checked:checkbox").length, toAdd = 0;
+        forAdmin ? toAdd = 1 : toAdd = 0; 
+        if (recordCheckedLen + toAdd == allRecords) {
+            $("#all-admins").prop('checked', true);
+        } else {
+            $("#all-admins").prop('checked', false);
         }
-    }else{
-        $("a#del-record-btn-"+id).addClass('disabled');
-        $("#admin-check-"+id+"").addClass('disabled');
-    }
+        $("#selected-"+id).is(':checked') ? $("#del-record-btn-"+id).addClass('disable') : $("#del-record-btn-"+id).removeClass('disable')
+    });
 }
 
 function checkAll(userId){
     $(function() {
         if($("#all-admins").is(':checked')){
             $('input.admin-checked[type=checkbox]').each(function() {
-                $(this).attr('id') != "admin-check-"+userId ? $(this).prop('checked', true) : '';
+                $(this).attr('id') != "selected-"+userId ? $(this).prop('checked', true) : '';
             });
             $("a.del-record-btn").each(function() {
                 $(this).attr('id') != "del-record-btn-"+userId ? $(this).addClass("disabled") : '';
             });
         }else{
             $('input.admin-checked[type=checkbox]').each(function() {
-                $(this).attr('id') != "admin-check-"+userId ? $(this).prop('checked', false) : '';
+                $(this).attr('id') != "selected-"+userId ? $(this).prop('checked', false) : '';
             });
             $("a.del-record-btn").each(function() {
                 $(this).attr('id') != "del-record-btn-"+userId ? $(this).removeClass("disabled") : '';
@@ -61,26 +55,32 @@ $(function() {
     });
 })
 
-function warningDelOne(id, name) {
+function warningDelOne(id, name, deletePath) {
     $(function() {
         $("#one-record").removeClass('hidden');
         $("#del-record").removeClass('hidden');
-        $("#del-form").attr('action', window.location.origin+'/admin/control/'+id);
+        $("#del-form").attr('action', deletePath+'/'+id);
         $("#record-name").text(name).css('color', 'red');
         $("#warning-del").modal("show");
     });
 }
 
-function makeAllMsgHidden(){
+function makeAllMsgHidden(deletePath){
     $(function() {
         $("#one-record").addClass('hidden');
         $("#no-empty-record").addClass('hidden');
         $("#empty-record").addClass('hidden');
         $("#del-record").addClass('hidden');
-        $("#del-form").attr('action', window.location.origin+'/admin/control/delete/selected');
+        $("#del-form").attr('action', deletePath);
     });
 }
 
 function deleteConfirmed(){
     $("#del-form").submit();
+}
+
+function showDetails(){
+    $(function() {
+        $("#show-details").modal('show');
+    });
 }

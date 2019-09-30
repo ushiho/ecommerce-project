@@ -1,0 +1,1 @@
+<input class="admin-checked" onchange="checkWhoIsChecked({{$id}}, false)" type="checkbox" name="users[]" value="{{$id}}" id="slected-"{{$id}}>
