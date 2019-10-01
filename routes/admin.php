@@ -17,11 +17,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function(){
             return changeLanguage($lang);
         })->where('lang', '[a-z]+');
         
-        Route::resource('control', 'AdminController');
-        Route::delete('control/delete/selected', 'AdminController@deleteSelected');
+        Route::resource('/control', 'AdminController');
+        Route::delete('/control/delete/selected', 'AdminController@deleteSelected');
 
-        Route::resource('users/control', 'UsersController');
-        Route::delete('users/control/delete/selected', 'UsersController@deleteSelected');
+        Route::resource('/users/control', 'UsersController');
+        Route::delete('/users/control/delete/selected', 'UsersController@deleteSelected');
+
+        Route::get('/site/settings', 'SettingsController@index');
+        Route::post('/site/settings/save', 'SettingsController@update');
     });
 
 });

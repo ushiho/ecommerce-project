@@ -2,6 +2,8 @@
 
 return [
     'admin' => 'مشرف',
+    'admins' => 'المشرفين',
+    'users' => 'المستخدمين',
     'login' => 'تسجيل الدخول',
     'home' => 'الصفحة الرئيسية',
     'add_admin' => 'إضافة مشرف',
@@ -18,7 +20,7 @@ return [
     'all_record' => 'جميع السجلات',
     'admin_control' => 'تحكم المشرف',
     'admin_account' => 'حساب المشرف',
-    'admin_accounts' => 'حسابات المشرف',
+    'admin_accounts' => 'حسابات المشرفين',
     'dashboard' => 'لوحة القيادة',
     'main_navigation' => 'الملاحة الرئيسية',
     'online' => 'متصل',
@@ -70,7 +72,8 @@ return [
     'user_deleted_error' => 'هذا المستخدم غير موجود.',
     'no_user_selected_to_delete' => 'لم يتم تحديد مستخدم للحذف.',
     'selected_users_are_deleted' => 'تم حذف جميع المستخدمين المختارين بنجاح.',
-    
+    'main' => 'الرئيسية',
+    'settings' => 'الإعدادات',
     
     // Datatables Translate
     "sProcessing" => "معالجة...",
@@ -92,4 +95,19 @@ return [
     "sSortAscending" => "التنشيط لفرز العمود بترتيب تصاعدي:",
     "sSortDescending" => "التنشيط لفرز العمود بترتيب تنازلي:",
     // End Datatables translate
+
+    // Site Settings
+    'sitename_ar' => 'اسم الموقع باللغة العربية',
+    'sitename_en' => 'اسم الموقع باللغة الإنجليزية',
+    'main_lang' => 'اللغة الرئيسية',
+    'english' => 'الإنجليزية',
+    'arabic' => 'العربية',
+    'french' => 'الفرنسية',
+    'status' => 'حالة الموقع ',
+    'logo' => 'شعار الموقع',
+    'icon' => 'أيقونة الموقع',
+    'description' => 'وصف الموقع',
+    'keywords' => 'الكلمات الدالة',
+    'msg_maintenance' => 'رسالة الصيانة',
+    'settings_saved_success' => 'تم حفظ الإعدادات بنجاح',
 ];

@@ -4,6 +4,8 @@ return [
     'home' => 'Home',
     'login' => 'Login',
     'admin' => 'Admin',
+    'admins' => 'Admins',
+    'users' => 'Users',
     'add_admin' => 'Add an admin',
     'admin_panel' => 'Admin Panel',
     'actions' => 'Actions',
@@ -70,6 +72,8 @@ return [
     'user_deleted_error' => 'This user not exist.',
     'no_user_selected_to_delete' => 'No user has been selected for deletion.',
     'selected_users_are_deleted' => 'All selected users was deleted successfully.',
+    'main' => 'Main',
+    'settings' => 'Settings',
     
     
     // Datatables tranlate
@@ -92,4 +96,19 @@ return [
     "sSortAscending" => "Activate to sort the column in ascending order:",
     "sSortDescending" => "Activate to sort the column in descending order:",
     // End Datatables translate
+
+    // Setting translate
+    'sitename_ar' => 'Website name in Arabic',
+    'sitename_en' => 'Website name in English',
+    'main_lang' => 'Main language',
+    'english' => 'English',
+    'arabic' => 'Arabic',
+    'french' => 'French',
+    'status' => 'Website status',
+    'logo' => 'Logo',
+    'icon' => 'Icon',
+    'description' => 'Description',
+    'keywords' => 'Keywords',
+    'msg_maintenance' => 'Maintenance message',
+    'settings_saved_success' => 'Settings was saved successfully.',
 ];
